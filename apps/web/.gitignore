@@ -33,3 +33,6 @@ coverage
 
 # OS
 Thumbs.db
+.pnpm
+.modules.yaml
+.pnpm-workspace-state-v1.json
