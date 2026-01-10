@@ -1,0 +1,48 @@
+.card {
+  border: 1px solid var(--border);
+  background: var(--card);
+  border-radius: 18px;
+  box-shadow: 0 12px 30px var(--shadow);
+}
+
+.card-pad {
+  padding: 16px;
+}
+
+@media (min-width: 900px) {
+  .card {
+    border-radius: 22px;
+  }
+  .card-pad {
+    padding: 22px;
+  }
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  padding: 10px 14px;
+  border-radius: 14px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: var(--accentSoft);
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--border);
+  padding: 8px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--textSoft);
+}

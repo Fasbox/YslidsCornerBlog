@@ -1,0 +1,269 @@
+/* Layout (igual a SectionIndex) */
+.search {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+@media (min-width: 900px) {
+  .search {
+    padding: 0 20px;
+  }
+}
+
+/* Header */
+.search__header {
+  padding: 16px 0 10px;
+  display: grid;
+  gap: 10px;
+}
+
+.search__kicker {
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--textSoft);
+  font-weight: 900;
+  margin: 0;
+}
+
+.search__title {
+  margin: 0;
+  font-size: 30px;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  font-weight: 950;
+}
+
+@media (min-width: 900px) {
+  .search__title {
+    font-size: 40px;
+  }
+}
+
+.search__subtitle {
+  margin: 0;
+  max-width: 70ch;
+  color: var(--textSoft);
+  line-height: 1.6;
+}
+
+/* Filtros */
+.search__filters {
+  display: grid;
+  gap: 14px;
+}
+
+@media (min-width: 768px) {
+  .search__filters {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    align-items: start;
+  }
+}
+
+.search__q {
+  grid-column: 1 / -1;
+}
+
+@media (min-width: 768px) {
+  .search__q {
+    grid-column: span 2;
+  }
+}
+
+.search__actions {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; /* ✅ separación real entre Buscar / Limpiar */
+}
+
+.search__inlineError {
+  margin-top: 6px;
+  font-size: 12px;
+  color: #f87171;
+}
+
+/* List: mobile 1, tablet 2, desktop 3 */
+.search__list {
+  display: grid;
+  gap: 18px;
+}
+
+@media (min-width: 768px) {
+  .search__list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: stretch;
+  }
+}
+
+@media (min-width: 1100px) {
+  .search__list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* Card (estilo SectionIndex) */
+.searchCard {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  text-decoration: none;
+
+  border: 1px solid var(--border);
+  background: var(--card);
+  border-radius: 18px;
+  box-shadow: 0 12px 30px var(--shadow);
+  transition: transform 150ms ease, background 150ms ease, box-shadow 150ms ease;
+}
+
+.searchCard:hover {
+  transform: translateY(-2px);
+  background: var(--cardHover);
+  box-shadow: 0 16px 36px var(--shadow);
+}
+
+.searchCard__coverWrap {
+  width: 100%;
+  height: 160px; /* ✅ más pequeño para que quepa info */
+  background: var(--bgSoft);
+  overflow: hidden;
+}
+
+.searchCard__cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.searchCard__body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 16px;
+  gap: 10px;
+}
+
+.searchCard__topRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.searchCard__title {
+  margin: 0;
+  font-size: 18px;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  font-weight: 950;
+}
+
+/* Pills (reusa tus estilos globales si ya existen; esto es por si no) */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-size: 12px;
+  color: var(--textSoft);
+  white-space: nowrap;
+}
+
+.searchCard__meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.searchCard__excerpt {
+  color: var(--textSoft);
+  line-height: 1.6;
+
+  /* ✅ “…” por líneas (como en SectionIndex) */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+
+  /* compat */
+  overflow: hidden;
+  line-clamp: 3;
+}
+
+.searchCard__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tagChip {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-size: 12px;
+  color: var(--textSoft);
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+}
+
+.searchCard__ctaRow {
+  margin-top: 6px;
+}
+
+.searchCard__cta {
+  font-weight: 900;
+  color: var(--accent);
+}
+
+/* Empty */
+.search__empty {
+  margin-top: 6px;
+  text-align: center;
+  color: var(--textSoft);
+}
+
+/* Pager */
+.search__pager {
+  margin-top: 18px;
+
+  border: 1px solid var(--border);
+  background: var(--card);
+  border-radius: 18px;
+  box-shadow: 0 12px 30px var(--shadow);
+
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+@media (min-width: 768px) {
+  .search__pager {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.search__pagerBtns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.search__pagerCount {
+  font-size: 14px;
+  color: var(--textSoft);
+}

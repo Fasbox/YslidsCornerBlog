@@ -1,0 +1,244 @@
+/* Admin Dashboard (mobile-first) */
+
+.adminDash {
+  display: grid;
+  gap: 16px;
+}
+
+/* Header */
+.adminDash__header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.adminDash__title {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+}
+
+.adminDash__subtitle {
+  margin: 6px 0 0;
+  color: var(--textSoft);
+}
+
+/* Filters (mobile first: stack) */
+.adminDash__filters {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: 1fr;
+  align-items: end;
+}
+
+.adminDash__filtersSpan2 {
+  grid-column: auto;
+}
+
+@media (min-width: 768px) {
+  .adminDash__filters {
+    grid-template-columns: repeat(4, minmax(160px, 1fr));
+  }
+
+  .adminDash__filtersSpan2 {
+    grid-column: span 2;
+  }
+}
+
+/* Table wrapper */
+.adminDash__tableArea {
+  display: grid;
+  gap: 12px;
+}
+
+.adminDash__tableWrap {
+  overflow: auto;
+}
+
+/* Table */
+.adminDash__table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 920px;
+  font-size: 14px;
+}
+
+.adminDash__table th,
+.adminDash__table td {
+  padding: 10px 10px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+  text-align: left;
+}
+
+.adminDash__table th {
+  font-size: 13px;
+  color: var(--textSoft);
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.adminDash__thRight {
+  text-align: right !important;
+}
+
+/* Post cell (cover mini + title) */
+.adminDash__postCell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 320px;
+}
+
+.adminDash__postText {
+  min-width: 0;
+}
+
+.adminDash__coverMini {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  object-fit: cover;
+  border: 1px solid var(--border);
+  background: var(--card);
+  flex: 0 0 auto;
+}
+
+.adminDash__coverMini--empty {
+  background: var(--accentSoft);
+  opacity: 0.35;
+}
+
+/* Title as button link */
+.adminDash__titleBtn {
+  display: inline-block;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--text);
+  font-weight: 900;
+  cursor: pointer;
+  text-align: left;
+  max-width: 520px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.adminDash__titleBtn:hover {
+  text-decoration: underline;
+}
+
+.adminDash__subline {
+  margin-top: 4px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.adminDash__slug {
+  color: var(--textSoft);
+  font-size: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 520px;
+}
+
+.adminDash__cellStrong {
+  font-weight: 800;
+}
+
+/* Status pill */
+.adminDash__status {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.adminDash__status--published {
+  border-color: rgba(34, 197, 94, 0.7);
+  color: rgba(34, 197, 94, 0.9);
+}
+
+.adminDash__status--draft {
+  border-color: rgba(234, 179, 8, 0.7);
+  color: rgba(234, 179, 8, 0.95);
+}
+
+/* Series pill */
+.adminDash__seriesPill {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--textSoft);
+  white-space: nowrap;
+}
+
+/* Actions */
+.adminDash__actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+/* Footer / Pager */
+.adminDash__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.adminDash__pager {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Helpers */
+.adminDash__muted {
+  color: var(--textSoft);
+}
+
+.adminDash__error {
+  color: #f87171;
+}
+
+.adminDash__empty {
+  padding: 20px 10px;
+  text-align: center;
+  color: var(--textSoft);
+}
+
+/* Optional: if you use btn--sm and variants but don't have them yet */
+.btn--sm {
+  padding: 8px 10px;
+  border-radius: 12px;
+  font-weight: 800;
+  font-size: 14px;
+}
+
+.btn--ok {
+  border-color: rgba(34, 197, 94, 0.7);
+  color: rgba(34, 197, 94, 0.9);
+}
+
+.btn--warn {
+  border-color: rgba(234, 179, 8, 0.7);
+  color: rgba(234, 179, 8, 0.95);
+}

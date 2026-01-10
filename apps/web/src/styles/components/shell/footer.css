@@ -1,0 +1,33 @@
+.footer {
+  margin-top: auto;
+  background: var(--navBg);
+  color: var(--navTextSoft);
+  border-top: 1px solid var(--navBorder);
+}
+
+/* Contenido interno */
+.footer__inner {
+  padding: 28px 0 32px;          /* 👈 padding real */
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: center;
+}
+
+/* Marca */
+.footer__brand {
+  margin: 0;
+  font-weight: 900;
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--navText);
+}
+
+/* Texto legal */
+.footer__text {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--navTextSoft);
+}

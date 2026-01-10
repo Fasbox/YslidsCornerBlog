@@ -1,0 +1,29 @@
+/* TipTap content styles */
+.tiptap-content {
+  line-height: 1.7;
+}
+
+/* 👇 Esto es lo que corrige tu problema */
+.tiptap-content img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+
+  /* no dejarla enorme en vertical */
+  max-height: 320px;
+
+  /* “se escala” sin deformar */
+  object-fit: contain;
+
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  margin: 12px auto;
+}
+
+/* si insertas youtube */
+.tiptap-content iframe {
+  max-width: 100%;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+}

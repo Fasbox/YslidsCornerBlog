@@ -1,0 +1,162 @@
+.home {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 18px 16px 28px;
+}
+
+/* Layout principal: mobile 1 columna */
+.home-grid {
+  display: grid;
+  gap: 18px;
+}
+
+/* Tablet: hero a la izquierda, gates a la derecha */
+@media (min-width: 768px) {
+  .home {
+    padding: 28px 20px 40px;
+  }
+}
+
+/* Desktop: más aire y tipografía */
+@media (min-width: 1024px) {
+  .home {
+    padding: 42px 24px 54px;
+  }
+
+  .home-grid {
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 28px;
+    align-items: start;
+  }
+}
+
+/* Hero */
+.home-hero {
+  padding: 0;
+}
+
+.home-kicker {
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--textSoft);
+  font-weight: 900;
+}
+
+.home-title {
+  margin-top: 12px;
+  font-size: 34px;
+  line-height: 1.06;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  font-weight: 950;
+}
+
+@media (min-width: 768px) {
+  .home-title {
+    font-size: 44px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .home-title {
+    font-size: 56px;
+  }
+}
+
+.home-subtitle {
+  margin-top: 12px;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--textSoft);
+  max-width: 60ch;
+}
+
+@media (min-width: 768px) {
+  .home-subtitle {
+    font-size: 16px;
+  }
+}
+
+/* Gates */
+.home-gates {
+  display: grid;
+  gap: 14px;
+}
+
+/* En tablet/desktop siguen 1 columna para que sea “stack editorial”.
+   Si quieres 2 columnas en desktop, lo activas en el media de 1024px. */
+@media (min-width: 1024px) {
+  .home-gates {
+    gap: 16px;
+  }
+}
+
+.gate {
+  display: block;
+  text-decoration: none;
+  border: 1px solid var(--border);
+  background: var(--card);
+  border-radius: 18px;
+  padding: 16px;
+  box-shadow: 0 12px 30px var(--shadow);
+  transition: transform 150ms ease, background 150ms ease;
+}
+
+.gate:hover {
+  transform: translateY(-2px);
+  background: var(--cardHover);
+}
+
+@media (min-width: 768px) {
+  .gate {
+    padding: 18px;
+    border-radius: 20px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .gate {
+    padding: 22px;
+    border-radius: 22px;
+  }
+}
+
+.gate-badge {
+  display: inline-flex;
+  align-items: center;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 8px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  color: var(--textSoft);
+}
+
+.gate h2 {
+  margin-top: 12px;
+  font-size: 22px;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  font-weight: 950;
+}
+
+.gate p {
+  margin-top: 6px;
+  color: var(--textSoft);
+  line-height: 1.65;
+}
+
+.gate-cta {
+  margin-top: 14px;
+  display: inline-flex;
+  font-weight: 900;
+  color: var(--accent);
+}
+
+.gate-fasec .gate-cta {
+  color: #f97316;
+}

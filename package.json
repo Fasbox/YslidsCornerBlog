@@ -1,0 +1,11 @@
+{
+  "name": "yslids-corner",
+  "private": true,
+  "packageManager": "pnpm@10.26.2",
+  "scripts": {
+    "dev": "pnpm -r dev",
+    "typecheck": "pnpm -r typecheck",
+    "lint": "pnpm -r lint",
+    "format": "pnpm -r format"
+  }
+}

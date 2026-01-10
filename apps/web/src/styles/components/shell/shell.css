@@ -1,0 +1,22 @@
+/* Shell: solo composición */
+@import "./topbar.css";
+@import "./drawer.css";
+@import "./footer.css";
+
+/* Layout base */
+.shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.shell__main{
+  flex: 1;
+  padding: 0px 0 28px; /* mobile: menos arriba */
+}
+
+@media (min-width: 768px){
+  .shell__main{
+    padding: 28px 0 44px;
+  }
+}

@@ -1,0 +1,164 @@
+/* Drawer (mobile) */
+.drawer {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+}
+
+.drawer[data-open="true"] {
+  pointer-events: auto;
+}
+
+/* Overlay fade */
+.drawer__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.38);
+
+  opacity: 0;
+  transition: opacity 180ms ease;
+}
+
+.drawer[data-open="true"] .drawer__overlay {
+  opacity: 1;
+}
+
+/* Panel slide (izq → der) */
+.drawer__panel {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: min(82%, 320px);
+
+  background: var(--navBg);
+  color: var(--navText);
+  border-right: 1px solid var(--navBorder);
+  box-shadow: 0 30px 80px rgba(0,0,0,0.25);
+
+  transform: translateX(-100%);
+  transition: transform 220ms cubic-bezier(.2,.8,.2,1);
+  will-change: transform;
+}
+
+.drawer[data-open="true"] .drawer__panel {
+  transform: translateX(0);
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  .drawer__overlay,
+  .drawer__panel {
+    transition: none !important;
+  }
+}
+
+/* Header: brand + close */
+.drawer__header--brand {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
+  /* ✅ mismo padding que body para alinear con links */
+  padding: 14px;
+
+  border-bottom: 1px solid var(--navBorder);
+}
+
+/* Brand */
+.drawer__brand {
+  text-decoration: none;
+  display: grid;
+  line-height: 1.1;
+
+  /* ✅ que ocupe el mismo “rail” del body */
+  min-width: 0;
+}
+
+.drawer__brandTitle {
+  font-weight: 900;
+  font-size: 16px;
+  color: var(--navText);
+}
+
+.drawer__close {
+  width: 44px;
+  height: 40px;
+  border-radius: 12px;
+  border: 1px solid var(--navBorder);
+  background: color-mix(in srgb, var(--navBgSoft) 70%, transparent);
+  color: var(--navText);
+  cursor: pointer;
+
+  /* ✅ evita que empuje el brand y conserva alineación */
+  flex: 0 0 auto;
+}
+
+/* Body */
+.drawer__body {
+  padding: 14px;
+}
+
+.drawer__search {
+  display: block;
+  text-decoration: none;
+
+  padding: 12px 14px;
+  border-radius: 16px;
+
+  border: 1px solid var(--navBorder);
+  background: color-mix(in srgb, var(--navBgSoft) 70%, transparent);
+  color: var(--navTextSoft);
+
+  margin-bottom: 12px;
+}
+
+/* Links */
+.drawer__links {
+  display: grid;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.drawer__links .nav__link {
+  justify-content: flex-start;
+  padding: 12px 14px;
+  border-radius: 14px;
+}
+
+/* Section current */
+.drawer__section {
+  margin-top: 16px;
+  padding: 14px;
+
+  border-radius: 16px;
+  border: 1px solid var(--navBorder);
+  background: color-mix(in srgb, var(--navBgSoft) 55%, transparent);
+}
+
+.drawer__sectionLabel {
+  margin: 0;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  color: var(--navTextSoft);
+}
+
+.drawer__sectionValue {
+  margin: 6px 0 0;
+  font-size: 14px;
+  font-weight: 900;
+  color: var(--navText);
+}
+
+/* Desktop: NO drawer, NO backdrop */
+@media (min-width: 1024px) {
+  .drawer,
+  .drawer__overlay,
+  .drawer__panel {
+    display: none !important;
+  }
+}
+

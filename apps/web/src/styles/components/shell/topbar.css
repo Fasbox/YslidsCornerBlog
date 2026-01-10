@@ -1,0 +1,199 @@
+/* Topbar (oscuro) */
+.topbar {
+  background: transparent;
+  border: 0;
+  backdrop-filter: none;
+}
+
+/* Grid: toggle | brand(center) | spacer */
+.topbar__inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 16px;
+  height: 56px;
+
+  display: grid;
+  grid-template-columns: 44px 1fr 44px;
+  align-items: center;
+  gap: 12px;
+}
+/* wrapper sticky */
+.topbarWrap {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(12, 30, 45, 0.92);
+  background: color-mix(in srgb, var(--navBg) 92%, transparent);
+  border-bottom: 1px solid var(--navBorder);
+  backdrop-filter: blur(10px);
+}
+
+.nav--desktop {
+  display: none;
+}
+
+.topbar__spacer {
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .topbar__inner {
+    padding: 0 20px;
+    height: 64px;
+  }
+}
+
+/* Brand centrado */
+.brand--center {
+  justify-self: center;
+  text-align: center;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  min-width: 0;
+}
+
+.brand__text {
+  display: grid;
+  line-height: 1.1;
+}
+
+.brand__title {
+  font-weight: 800;
+  font-size: 24px;
+  color: var(--navText);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Toggle */
+.nav__toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 40px;
+  height: 40px;
+
+  border-radius: 12px;
+  border: 1px solid var(--navBorder);
+  background: color-mix(in srgb, var(--navBgSoft) 65%, transparent);
+
+  color: var(--navText);
+  cursor: pointer;
+}
+
+.nav__toggleIcon {
+  font-size: 18px;
+  line-height: 1;
+}
+
+/* Nav link base (lo reutilizas en drawer también) */
+.nav__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 10px 12px;
+  border-radius: 12px;
+
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 14px;
+
+  color: var(--navTextSoft);
+  transition: background 150ms ease, color 150ms ease, transform 150ms ease;
+}
+
+.nav__link:hover {
+  background: color-mix(in srgb, var(--accent) 16%, transparent);
+  color: var(--navText);
+}
+
+.nav__link--active {
+  background: color-mix(in srgb, var(--accent) 22%, transparent);
+  color: var(--navText);
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .nav__toggle {
+    display: none;
+  }
+
+  .topbar__spacer {
+    display: none;
+  }
+
+  /* Ahora sí mostramos el bloque derecho */
+  .topbar__right {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  /* Desktop layout estable */
+  .topbar__inner {
+    padding: 0 20px;
+    grid-template-columns: auto 1fr auto;
+  }
+  .brand--center {
+    justify-self: start;
+    text-align: left;
+  }
+
+  .nav--desktop {
+    display: inline-flex;
+    justify-self: end;
+    gap: 8px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .topbar__inner {
+    padding: 0 24px;
+  }
+}
+
+
+.nav__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  height: 40px;
+  padding: 0 14px;
+  border-radius: 999px;
+
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 14px;
+
+  color: var(--navText);
+  border: 1px solid var(--navBorder);
+  background: color-mix(in srgb, var(--accent) 18%, transparent);
+
+  transition: background 150ms ease, transform 150ms ease, box-shadow 150ms ease;
+}
+
+.nav__cta:hover {
+  background: color-mix(in srgb, var(--accent) 26%, transparent);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+}
+
+.nav__ctaIcon {
+  font-size: 16px;
+  line-height: 1;
+  opacity: 0.95;
+}
+
+.nav__ctaText {
+  line-height: 1;
+}
+
+
