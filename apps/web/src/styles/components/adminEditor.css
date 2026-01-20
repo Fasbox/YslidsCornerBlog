@@ -32,6 +32,11 @@
   flex-wrap: wrap;
 }
 
+/* message */
+.editorMsg {
+  font-size: 14px;
+}
+
 /* layout for meta form */
 .metaGrid {
   display: grid;
@@ -88,24 +93,7 @@
   }
 }
 
-/* toolbar/editor */
-.editorToolbar {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.editorStack {
-  display: grid;
-  gap: 12px;
-}
-
-/* message */
-.editorMsg {
-  font-size: 14px;
-}
-
-/* buttons variants if you don't have them globally yet */
+/* buttons variants (por si no están globales) */
 .btn--primary {
   border: 1px solid rgba(37, 99, 235, 0.35);
   background: var(--accent);

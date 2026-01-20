@@ -10,6 +10,7 @@ import AdminNewPostPage from "./pages/admin/AdminNewPostPage";
 import SearchPage from "./pages/SearchPage";
 import AdminGuard from "./pages/admin/AdminGuard";
 import NotFoundPage from "./pages/NotFoundPage";
+import AdminTagsPage from "./pages/admin/AdminTagsPage";
 
 
 function useThemeByRoute() {
@@ -40,6 +41,7 @@ export default function App() {
             <Route path="/admin" element={<AdminDashboardPage />} />
             <Route path="/admin/editor/:id" element={<AdminEditorPage />} />
             <Route path="/admin/new" element={<AdminNewPostPage />} />
+            <Route path="/admin/tags" element={<AdminTagsPage />} />
           </Route>
 
           <Route path="*" element={<NotFoundPage />} />

@@ -1,0 +1,204 @@
+/* src/styles/components/adminTags.css */
+
+.adminTags {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+@media (min-width: 900px) {
+  .adminTags {
+    padding: 0 20px;
+  }
+}
+
+.adminTags__header {
+  padding: 10px 0 14px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.adminTags__title {
+  margin: 0;
+  font-size: 30px;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  font-weight: 950;
+}
+
+@media (min-width: 900px) {
+  .adminTags__title {
+    font-size: 40px;
+  }
+}
+
+.adminTags__subtitle {
+  margin-top: 8px;
+  color: var(--textSoft);
+  line-height: 1.6;
+  max-width: 70ch;
+}
+
+.adminTags__muted {
+  color: var(--textSoft);
+}
+
+.adminTags__error,
+.adminTags__inlineError {
+  color: #f87171;
+  margin-top: 8px;
+}
+
+.adminTags__inlineError {
+  font-size: 12px;
+}
+
+.adminTags__createGrid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 900px) {
+  .adminTags__createGrid {
+    grid-template-columns: 1.4fr 1fr 0.7fr auto;
+    align-items: end;
+  }
+}
+
+.adminTags__createActions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.adminTags__topbar {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+@media (min-width: 900px) {
+  .adminTags__topbar {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+}
+
+.adminTags__filters {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 900px) {
+  .adminTags__filters {
+    grid-template-columns: 260px 1fr;
+    align-items: end;
+  }
+  .adminTags__filtersSpan2 {
+    grid-column: span 1;
+  }
+}
+
+.adminTags__stats {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Table */
+.adminTags__tableWrap {
+  margin-top: 10px;
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+}
+
+.adminTags__table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 760px;
+}
+
+.adminTags__table thead th {
+  text-align: left;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--textSoft);
+  padding: 12px 12px;
+  background: color-mix(in srgb, var(--card) 92%, transparent);
+}
+
+.adminTags__table tbody td {
+  padding: 12px;
+  border-top: 1px solid var(--border);
+  vertical-align: top;
+}
+
+.adminTags__thRight {
+  text-align: right;
+}
+
+.adminTags__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.adminTags__empty {
+  padding: 18px;
+  text-align: center;
+  color: var(--textSoft);
+}
+
+.adminTags__nameCell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.adminTags__name {
+  font-weight: 900;
+  color: var(--text);
+}
+
+.adminTags__slug {
+  color: var(--textSoft);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 12px;
+}
+
+.adminTags__pill {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-size: 12px;
+  color: var(--textSoft);
+  white-space: nowrap;
+}
+
+/* small controls (reusa fieldControl base) */
+.fieldControl--sm {
+  padding: 8px 10px;
+  border-radius: 12px;
+  font-size: 13px;
+}
+
+/* danger button helper (si no lo tienes ya) */
+.btn--danger {
+  border-color: #ef4444;
+  color: #ef4444;
+}
+
+.btn--danger:hover {
+  background: color-mix(in srgb, #ef4444 12%, transparent);
+}

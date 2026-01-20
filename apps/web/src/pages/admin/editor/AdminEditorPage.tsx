@@ -11,7 +11,7 @@ import { updatePostTags } from "../../../features/admin/adminPostsTags.api";
 import { fetchAdminSeries, createAdminSeries } from "../../../features/admin/adminSeries.api";
 import { getAdminPostSeries, setAdminPostSeries } from "../../../features/admin/adminPostSeries.api";
 
-import { useTags } from "../../../features/tags/useTags";
+import { useAdminTags } from "../../../hooks/useAdminTags";
 import { extractPlainText, estimateReadingTimeMinutes } from "../../../features/posts/content.utils";
 import { slugify } from "../../../utils/slugify";
 
@@ -22,11 +22,18 @@ import Link from "@tiptap/extension-link";
 import Image from "@tiptap/extension-image";
 import Placeholder from "@tiptap/extension-placeholder";
 import Youtube from "@tiptap/extension-youtube";
+import HorizontalRule from "@tiptap/extension-horizontal-rule";
+import { Table } from "@tiptap/extension-table";
+import { TableRow } from "@tiptap/extension-table-row";
+import { TableCell } from "@tiptap/extension-table-cell";
+import { TableHeader } from "@tiptap/extension-table-header";
+
 
 // Componentes modulares
 import PostMetaForm, { type PostSection } from "./PostMetaForm";
 import PostTagsCard from "./PostTagsCard";
 import PostTipTapEditor from "./PostTipTapEditor";
+
 
 type TagDTO = { id: string; name: string; slug: string; section: "TECH" | "FASEC" | null };
 
@@ -76,21 +83,51 @@ export default function AdminEditorPage() {
   // tags (max 3)
   const [tagIds, setTagIds] = useState<string[]>([]);
 
+  // Image extension con atributos width/height
+  const CustomImage = Image.extend({
+  addAttributes() {
+    return {
+      ...this.parent?.(),
+      width: { default: null },
+      height: { default: null },
+    };
+  },
+});
+
   // TipTap editor instance
-  const editor = useEditor({
-    extensions: [
-      StarterKit.configure({ link: false }),
-      Link.configure({
-        openOnClick: false,
-        autolink: true,
-        linkOnPaste: true,
-      }),
-      Image,
-      Youtube.configure({ controls: true, nocookie: true }),
-      Placeholder.configure({ placeholder: "Escribe tu post…" }),
-    ],
-    content: emptyDoc(),
-  });
+const editor = useEditor({
+  extensions: [
+    StarterKit.configure({
+      link: false,
+      // opcional: si no quieres H1, lo puedes limitar desde toolbar en vez de acá
+    }),
+
+    Link.configure({
+      openOnClick: false,
+      autolink: true,
+      linkOnPaste: true,
+    }),
+
+    CustomImage,
+
+    Youtube.configure({ controls: true, nocookie: true }),
+
+    HorizontalRule,
+
+    Table.configure({
+      resizable: true,
+      // por defecto TipTap exige envolver en <div class="tableWrapper"> o dar estilos
+      // lo resolvemos por CSS
+    }),
+    TableRow,
+    TableHeader,
+    TableCell,
+
+    Placeholder.configure({ placeholder: "Escribe tu post…" }),
+  ],
+  content: emptyDoc(),
+});
+
 
   const postQ = useQuery({
     queryKey: ["adminPost", id],
@@ -114,7 +151,7 @@ export default function AdminEditorPage() {
   });
 
   // tags disponibles según sección
-  const tagsQ = useTags(section);
+  const tagsQ = useAdminTags(section);
 
   // cargar data → state + editor content
   useEffect(() => {

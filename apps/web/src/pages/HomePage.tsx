@@ -12,7 +12,7 @@ export default function HomePage() {
           <p className="home-subtitle">
             Este es mi camino por la ciberseguridad, la automatización, las redes y
             todo lo relacionado con la tecnología. A veces, las cosas no funcionan a
-            la primera (o a la décima), pero supongo que esa es la parte divertida.
+            la primera (o a la décima), pero eso es lo divertido, creo.
           </p>
         </section>
 

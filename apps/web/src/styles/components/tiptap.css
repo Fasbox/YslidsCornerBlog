@@ -1,3 +1,157 @@
+/* ==========================
+   TipTap: Toolbar + Editor
+   ========================== */
+
+/* stack: toolbar + editor + help */
+.editorStack {
+  display: grid;
+  gap: 12px;
+}
+
+/* toolbar base */
+.editorToolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* Sticky toolbar */
+.editorToolbar--sticky {
+  position: sticky;
+  top: 12px; /* ajusta si tu Topbar tapa algo (ej: 72px) */
+  z-index: 30;
+
+  padding: 10px;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  background: color-mix(in srgb, var(--card) 86%, transparent);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 26px var(--shadow);
+}
+
+/* en pantallas grandes, por si quieres un poco más de aire */
+@media (min-width: 768px) {
+  .editorToolbar--sticky {
+    top: 14px;
+  }
+}
+
+/* separador opcional si lo usas */
+.editorToolbar__sep {
+  width: 1px;
+  align-self: stretch;
+  background: var(--border);
+  margin: 0 2px;
+}
+
+/* marco del editor */
+.editorFrame {
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--card);
+  overflow: hidden;
+}
+
+/* el contenido editable */
+.tiptap-content {
+  padding: 16px;
+  min-height: 360px;
+}
+
+/* ==========================
+   TipTap: Contenido
+   ========================== */
+
+/* inline code */
+.tiptap-content code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+  font-size: 0.95em;
+  padding: 0.15em 0.4em;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: color-mix(in srgb, var(--bgSoft) 80%, transparent);
+}
+
+/* code block */
+.tiptap-content pre {
+  margin: 12px 0;
+  padding: 14px 16px;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  background: color-mix(in srgb, #000 12%, var(--card));
+  overflow: auto;
+}
+
+.tiptap-content pre code {
+  border: none;
+  background: transparent;
+  padding: 0;
+  font-size: 0.9em;
+  line-height: 1.55;
+  color: var(--text);
+}
+
+/* blockquote */
+.tiptap-content blockquote {
+  margin: 12px 0;
+  padding: 10px 14px;
+  border-left: 4px solid var(--accent);
+  background: color-mix(in srgb, var(--accentSoft) 55%, transparent);
+  border-radius: 12px;
+  color: var(--text);
+}
+
+/* horizontal rule */
+.tiptap-content hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 18px 0;
+}
+
+/* ==========================
+   TipTap: Tables
+   ========================== */
+
+.tiptap-content table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 14px 0;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.tiptap-content th,
+.tiptap-content td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  vertical-align: top;
+}
+
+.tiptap-content tr:last-child td {
+  border-bottom: none;
+}
+
+.tiptap-content th:last-child,
+.tiptap-content td:last-child {
+  border-right: none;
+}
+
+.tiptap-content th {
+  font-weight: 800;
+  background: color-mix(in srgb, var(--bgSoft) 85%, transparent);
+}
+
+/* resizable handle (si Table.resizable=true) */
+.tiptap-content .column-resize-handle {
+  background: color-mix(in srgb, var(--accent) 55%, transparent);
+  width: 3px;
+}
+
+
 /* TipTap content styles */
 .tiptap-content {
   line-height: 1.7;

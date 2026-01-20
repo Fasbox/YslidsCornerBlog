@@ -1,5 +1,13 @@
 import { adminFetch } from "../../lib/apiAdminClient";
 
+export type AdminTag = {
+  id: string;
+  section: "TECH" | "FASEC" | null;
+  name: string;
+  slug: string;
+  created_at: string;
+};
+
 export type AdminPostListItem = {
   id: string;
   section: "TECH" | "FASEC";
@@ -13,6 +21,7 @@ export type AdminPostListItem = {
   published_at?: string | null;
 
   series?: { id: string; title: string; slug: string } | null;
+  tags?: AdminTag[];
 };
 
 export type AdminPostsListResponse = {

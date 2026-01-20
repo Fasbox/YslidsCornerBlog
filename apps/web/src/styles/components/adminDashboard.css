@@ -152,6 +152,31 @@
   font-weight: 800;
 }
 
+.adminDash__tagsRow{
+  margin-top: 6px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+}
+
+.adminDash__tagChip{
+  border:1px solid var(--border);
+  background: var(--card);
+  color: var(--textSoft);
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.adminDash__tagMore{
+  color: var(--textSoft);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 8px;
+}
+
+
 /* Status pill */
 .adminDash__status {
   display: inline-flex;

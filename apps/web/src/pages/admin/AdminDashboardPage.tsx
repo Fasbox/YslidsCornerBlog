@@ -71,6 +71,7 @@ export default function AdminDashboardPage() {
           <button className="btn" onClick={() => nav("/admin/new")}>
             + Nuevo post
           </button>
+          <button className="btn" onClick={() => nav("/admin/tags")}>Gestionar tags</button>
         </header>
 
         <Card>
@@ -175,6 +176,18 @@ export default function AdminDashboardPage() {
                                     {p.slug}
                                   </span>
                                 </div>
+                                {p.tags?.length ? (
+                                  <div className="adminDash__tagsRow">
+                                    {p.tags.slice(0, 3).map((t) => (
+                                      <span key={`${p.id}-${t.id}`} className="adminDash__tagChip">
+                                        #{t.name}
+                                      </span>
+                                    ))}
+                                    {p.tags.length > 3 ? (
+                                      <span className="adminDash__tagMore">+{p.tags.length - 3}</span>
+                                    ) : null}
+                                  </div>
+                                ) : null}
                               </div>
                             </div>
                           </td>
