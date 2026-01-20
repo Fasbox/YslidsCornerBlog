@@ -17,16 +17,7 @@ import { slugify } from "../../../utils/slugify";
 
 // TipTap
 import { useEditor } from "@tiptap/react";
-import StarterKit from "@tiptap/starter-kit";
-import Link from "@tiptap/extension-link";
-import Image from "@tiptap/extension-image";
-import Placeholder from "@tiptap/extension-placeholder";
-import Youtube from "@tiptap/extension-youtube";
-import HorizontalRule from "@tiptap/extension-horizontal-rule";
-import { Table } from "@tiptap/extension-table";
-import { TableRow } from "@tiptap/extension-table-row";
-import { TableCell } from "@tiptap/extension-table-cell";
-import { TableHeader } from "@tiptap/extension-table-header";
+import { editorExtensions } from "./tiptap";
 
 
 // Componentes modulares
@@ -83,50 +74,11 @@ export default function AdminEditorPage() {
   // tags (max 3)
   const [tagIds, setTagIds] = useState<string[]>([]);
 
-  // Image extension con atributos width/height
-  const CustomImage = Image.extend({
-  addAttributes() {
-    return {
-      ...this.parent?.(),
-      width: { default: null },
-      height: { default: null },
-    };
-  },
-});
-
   // TipTap editor instance
-const editor = useEditor({
-  extensions: [
-    StarterKit.configure({
-      link: false,
-      // opcional: si no quieres H1, lo puedes limitar desde toolbar en vez de acá
-    }),
-
-    Link.configure({
-      openOnClick: false,
-      autolink: true,
-      linkOnPaste: true,
-    }),
-
-    CustomImage,
-
-    Youtube.configure({ controls: true, nocookie: true }),
-
-    HorizontalRule,
-
-    Table.configure({
-      resizable: true,
-      // por defecto TipTap exige envolver en <div class="tableWrapper"> o dar estilos
-      // lo resolvemos por CSS
-    }),
-    TableRow,
-    TableHeader,
-    TableCell,
-
-    Placeholder.configure({ placeholder: "Escribe tu post…" }),
-  ],
-  content: emptyDoc(),
-});
+  const editor = useEditor({
+    extensions: editorExtensions,
+    content: emptyDoc(),
+  });
 
 
   const postQ = useQuery({
