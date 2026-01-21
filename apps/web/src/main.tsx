@@ -18,6 +18,7 @@ import "./styles/components/adminDashboard.css";
 import "./styles/components/adminEditor.css";
 import "./styles/components/tiptap.css";
 import "./styles/components/tagPicker.css";
+import "./styles/components/inlineSearch.css";
 
 const queryClient = new QueryClient({
   defaultOptions: {

@@ -11,7 +11,9 @@ export const onRequest: PagesFunction = async (ctx) => {
   const url = new URL(request.url);
 
   const ua = request.headers.get("user-agent") ?? "";
-  const forceOg = url.searchParams.get("og") === "1";
+  const forceOg =
+  url.searchParams.get("og") === "1" &&
+  (url.hostname === "localhost" || url.hostname.endsWith("pages.dev"));
   const isBot = /whatsapp|facebookexternalhit|facebot|twitterbot|telegrambot|discordbot|slackbot/i.test(
     ua
   );
@@ -76,7 +78,7 @@ export const onRequest: PagesFunction = async (ctx) => {
     return new Response(html, {
       headers: {
         "content-type": "text/html; charset=utf-8",
-        "cache-control": "public, max-age=300",
+        "cache-control": "public, max-age=60, s-maxage=300, stale-while-revalidate=86400",
       },
     });
   } catch {

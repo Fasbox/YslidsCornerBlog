@@ -1,4 +1,5 @@
 import { Link, NavLink } from "react-router-dom";
+import InlineSearch from "./InlineSearch";
 
 function cnNav(isActive: boolean) {
   return ["nav__link", isActive ? "nav__link--active" : ""].join(" ");
@@ -40,9 +41,12 @@ export default function Drawer({ open, onClose, pathname, sectionLabel }: Props)
         </div>
 
         <div className="drawer__body">
-          <Link to="/search?q=" className="drawer__search" onClick={onClose}>
-            Buscar…
-          </Link>
+          <div className="drawer__searchWrap">
+            <InlineSearch
+              placeholder="Buscar…"
+              onPick={onClose} // al elegir resultado cierra el drawer
+            />
+          </div>
 
           <nav className="drawer__links" aria-label="Navegación">
             <NavLink to="/tech" className={({ isActive }) => cnNav(isActive)} onClick={onClose}>

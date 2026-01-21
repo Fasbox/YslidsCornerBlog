@@ -1,5 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
 import { useMediaQuery } from "../../hooks/useMediaQuery";
+import InlineSearch from "./InlineSearch";
 
 function cnNav(isActive: boolean) {
   return ["nav__link", isActive ? "nav__link--active" : ""].join(" ");
@@ -57,10 +58,9 @@ export default function Topbar({ open, onOpen, toggleBtnRef }: Props) {
                 </NavLink>
               </nav>
 
-              <Link to="/search?q=" className="nav__cta" aria-label="Buscar">
-                <span className="nav__ctaIcon" aria-hidden="true">⌕</span>
-                <span className="nav__ctaText">Buscar</span>
-              </Link>
+              <div className="topbar__search">
+                <InlineSearch placeholder="Buscar…" />
+              </div>
             </div>
           ) : null}
         </div>
