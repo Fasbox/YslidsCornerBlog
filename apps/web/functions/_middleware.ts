@@ -11,11 +11,12 @@ export const onRequest: PagesFunction = async (ctx) => {
   const url = new URL(request.url);
 
   const ua = request.headers.get("user-agent") ?? "";
+  const forceOg = url.searchParams.get("og") === "1";
   const isBot = /whatsapp|facebookexternalhit|facebot|twitterbot|telegrambot|discordbot|slackbot/i.test(
     ua
   );
 
-  if (!isBot) return next();
+  if (!isBot && !forceOg) return next();
 
   // /fasec/post/:slug  o  /tech/post/:slug
   const m = url.pathname.match(/^\/(fasec|tech)\/post\/([^/]+)\/?$/i);
