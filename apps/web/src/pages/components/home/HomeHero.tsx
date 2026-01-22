@@ -1,5 +1,5 @@
 // src/components/home/HomeHero.tsx
-import "../../../styles/components/homeBlog/hero.css";
+import "../../../styles/components/home/hero.css";
 
 type Props = {
   onExplore: () => void;

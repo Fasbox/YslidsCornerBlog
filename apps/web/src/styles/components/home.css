@@ -1,11 +1,21 @@
-/* src/styles/pages/home.css */
+/* src/styles/components/home.css */
+
+/* ✅ wrapper full-bleed para que el bg NO dependa del container */
+.homePage {
+  position: relative;
+  width: 100%;
+  overflow-x: clip; /* ✅ corta cualquier overflow horizontal sin romper sticky */
+  isolation: isolate; /* mantiene capas limpias */
+}
+
+/* tu container real de contenido */
 .home {
   position: relative;
   width: 100%;
   max-width: 1100px;
   margin: 0 auto;
   padding: 0;
-  isolation: isolate;
+  z-index: 0;
 }
 
 @media (min-width: 768px) {
@@ -26,99 +36,117 @@
   height: 1px;
 }
 
-/* Fondo artístico */
+/* =========================
+   ✅ Fondo artístico full-bleed
+   ========================= */
+
 .home-bg {
   position: absolute;
-  inset: -80px -30px auto -30px;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;               /* ✅ full viewport width */
   height: 760px;
-  z-index: -1;
   pointer-events: none;
+  z-index: -1;
 }
 
+/* en desktop dale más alto para que no “termine” raro */
+@media (min-width: 768px) {
+  .home-bg {
+    height: 860px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .home-bg {
+    height: 920px;
+  }
+}
+
+/* blobs */
 .home-blob {
   position: absolute;
   border-radius: 999px;
-  filter: blur(34px);
+  filter: blur(38px);
   opacity: 0.9;
 }
 
 .home-blob--a {
-  width: 360px;
-  height: 360px;
-  left: -120px;
-  top: 60px;
+  width: 520px;
+  height: 520px;
+  left: -220px;
+  top: 80px;
   background: radial-gradient(circle at 30% 30%, var(--accentSoft), transparent 60%);
 }
 
 .home-blob--b {
-  width: 520px;
-  height: 520px;
-  right: -180px;
-  top: 0px;
-  background: radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.9), transparent 65%);
+  width: 620px;
+  height: 620px;
+  right: -260px;
+  top: 40px;
+  background: radial-gradient(circle at 45% 45%, rgba(255, 255, 255, 0.95), transparent 65%);
+}
+
+/* ✅ blob naranja contraparte */
+.home-blob--d {
+  width: 560px;
+  height: 560px;
+  right: -200px;
+  top: 220px;
+  background: radial-gradient(circle at 35% 35%, rgba(249, 115, 22, 0.18), transparent 62%);
+  opacity: 0.75;
 }
 
 .home-blob--c {
-  width: 560px;
-  height: 560px;
+  width: 680px;
+  height: 680px;
   left: 18%;
-  top: 200px;
+  top: 260px;
   background: radial-gradient(circle at 30% 40%, var(--accentSoft), transparent 70%);
   opacity: 0.55;
 }
 
+/* gridlines */
 .home-gridlines {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to right, rgba(15, 23, 42, 0.05) 1px, transparent 1px),
+  background:
+    linear-gradient(to right, rgba(15, 23, 42, 0.05) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(15, 23, 42, 0.04) 1px, transparent 1px);
   background-size: 56px 56px;
-  mask-image: radial-gradient(circle at 50% 28%, black 35%, transparent 70%);
+
+  /* ✅ tu mask estaba “cortando” visualmente en pantallas grandes.
+     La hacemos MUCHO más suave y en desktop la ampliamos */
+  mask-image: radial-gradient(circle at 50% 30%, black 55%, transparent 92%);
   opacity: 0.75;
   z-index: -1;
 }
 
-/* flotantes tipo referencia */
-.home-float {
-  position: absolute;
-  border-radius: 18px;
-  border: 1px solid rgba(37, 99, 235, 0.18);
-  background: rgba(37, 99, 235, 0.06);
+@media (min-width: 1024px) {
+  .home-gridlines {
+    mask-image: radial-gradient(circle at 50% 32%, black 70%, transparent 98%);
+  }
 }
 
-.home-float--square {
-  width: 64px;
-  height: 64px;
-  right: 22px;
-  top: 70px;
-  border-radius: 18px;
-}
-
-.home-float--dot {
-  width: 10px;
-  height: 10px;
-  left: 50%;
-  top: 360px;
-  transform: translateX(-50%);
-  border-radius: 999px;
-  background: rgba(249, 115, 22, 0.6);
-  border: none;
-}
+/* =========================
+   ✅ breathing floats
+   ========================= */
 
 .bg-float {
-  z-index: 1;
-  pointer-events: none;
   position: absolute;
-  opacity: 0.7;
-  animation: breathe 8s ease-in-out infinite;
-  filter: blur(0.2px);
+  pointer-events: none;
+  opacity: 0.75;
+  animation: breathe 9s ease-in-out infinite;
   transform-origin: center;
+  filter: blur(0.15px);
 }
 
+/* ✅ ÚNICA definición de breathe (antes tenías 2) */
 @keyframes breathe {
-  0%   { transform: translateY(0) scale(1);     opacity: 0.45; }
-  50%  { transform: translateY(-10px) scale(1.35); opacity: 0.85; }
-  100% { transform: translateY(0) scale(1);     opacity: 0.45; }
+  0%   { transform: translateY(0) scale(1); opacity: 0.40; }
+  50%  { transform: translateY(-12px) scale(1.28); opacity: 0.85; }
+  100% { transform: translateY(0) scale(1); opacity: 0.40; }
 }
 
 .bg-circle {
@@ -128,49 +156,85 @@
   box-shadow: 0 10px 30px rgba(37, 99, 235, 0.10);
 }
 
+/* ✅ cuadrados VISIBLES (más grandes y menos “bolita”) */
 .bg-square {
-  border-radius: 18px;
+  border-radius: 14px;
   background: rgba(37, 99, 235, 0.14);
   border: 1px solid rgba(37, 99, 235, 0.20);
   box-shadow: 0 10px 30px rgba(37, 99, 235, 0.08);
 }
 
-/* posiciones */
-.bg-a {
-  width: 18px;
-  height: 18px;
-  top: 22%;
-  left: 14%;
+.bg-square-orange {
+  border-radius: 14px;
+  background: rgba(249, 115, 22, 0.14);
+  border: 1px solid rgba(249, 115, 22, 0.22);
+  box-shadow: 0 10px 30px rgba(249, 115, 22, 0.10);
 }
 
+/* =========================
+   posiciones (mobile-first)
+   ✅ te bajo los 3 círculos
+   ✅ el que está debajo de "corner" será azul
+   ========================= */
+
+/* círculo azul abajo del "corner" */
+.bg-a {
+  width: 14px;
+  height: 14px;
+  top: 40%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* otros círculos más abajo */
 .bg-b {
   width: 12px;
   height: 12px;
-  top: 38%;
-  right: 18%;
+  top: 58%;
+  right: 16%;
   animation-delay: 2s;
 }
 
 .bg-c {
-  width: 28px;
-  height: 28px;
-  bottom: 22%;
-  right: 12%;
+  width: 26px;
+  height: 26px;
+  top: 72%;
+  left: 12%;
   animation-delay: 4s;
 }
 
-/* animación respirar */
-@keyframes breathe {
-  0% {
-    transform: scale(1);
-    opacity: 0.4;
-  }
-  50% {
-    transform: scale(1.25);
-    opacity: 0.75;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 0.4;
-  }
+/* ✅ cuadrados naranjas */
+.bg-d {
+  width: 54px;
+  height: 54px;
+  top: 18%;
+  left: 10%;
+  animation-delay: 1.2s;
+}
+
+.bg-e {
+  width: 42px;
+  height: 42px;
+  top: 62%;
+  right: 10%;
+  animation-delay: 3.4s;
+}
+
+.bg-f {
+  width: 64px;
+  height: 64px;
+  top: 34%;
+  right: 22%;
+  animation-delay: 5.2s;
+}
+
+/* desktop: reacomoda para que se vea “distribuido” */
+@media (min-width: 1024px) {
+  .bg-a { top: 34%; left: 50%; }
+  .bg-b { top: 42%; right: 18%; }
+  .bg-c { top: 78%; left: 14%; }
+
+  .bg-d { top: 16%; left: 8%; }
+  .bg-e { top: 70%; right: 12%; }
+  .bg-f { top: 30%; right: 28%; }
 }

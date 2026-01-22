@@ -16,23 +16,22 @@ export default function HomePage() {
   };
 
   return (
-    <main className="home">
+    <div className="homePage">
       <HomeBg />
 
-      <HomeHero
-        onExplore={() => scrollToId("explorar")}
-        onAbout={() => scrollToId("sobre-mi")}
-      />
+      <main className="home">
+        <HomeHero
+          onExplore={() => scrollToId("explorar")}
+          onAbout={() => scrollToId("sobre-mi")}
+        />
 
-      <div id="explorar" className="home-anchor" />
+        <div id="explorar" className="home-anchor" />
 
-      <HomePaths />
-
-      <HomeSocial />
-
-      <HomeBlog />
-
-      <HomeAbout />
-    </main>
+        <HomePaths />
+        <HomeSocial />
+        <HomeBlog />
+        <HomeAbout />
+      </main>
+    </div>
   );
 }

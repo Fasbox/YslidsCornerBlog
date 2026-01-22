@@ -1,5 +1,5 @@
 // src/components/home/HomeAbout.tsx
-import "../../../styles/components/homeBlog/about.css";
+import "../../../styles/components/home/about.css";
 
 export default function HomeAbout() {
   return (

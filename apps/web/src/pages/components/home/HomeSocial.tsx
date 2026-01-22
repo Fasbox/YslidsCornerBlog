@@ -1,5 +1,5 @@
 // src/components/home/HomeSocial.tsx
-import "../../../styles/components/homeBlog/social.css";
+import "../../../styles/components/home/social.css";
 
 type SocialPost = {
   platform: "Instagram" | "TikTok";
