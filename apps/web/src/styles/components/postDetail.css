@@ -110,3 +110,16 @@
     height: 340px;
   }
 }
+
+/* ✅ Evita overflow horizontal por hijos en grid/flex (especialmente TipTap content) */
+.postDetail__layout,
+.postDetail__article,
+.postDetail__aside {
+  min-width: 0;
+}
+
+/* Si tu Card tiene wrappers internos, esto también ayuda */
+.postDetail__article > *,
+.postDetail__aside > * {
+  min-width: 0;
+}

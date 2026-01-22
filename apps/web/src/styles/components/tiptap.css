@@ -71,6 +71,7 @@
   border-radius: 8px;
   border: 1px solid var(--border);
   background: color-mix(in srgb, var(--bgSoft) 80%, transparent);
+  max-width: 100%;
 }
 
 /* code block */
@@ -81,6 +82,9 @@
   border: 1px solid var(--border);
   background: color-mix(in srgb, #000 12%, var(--card));
   overflow: auto;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .tiptap-content pre code {
@@ -113,8 +117,14 @@
    TipTap: Tables
    ========================== */
 
+.tiptap-content .tableWrapper {
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
 .tiptap-content table {
-  width: 100%;
+  max-width: 100%;
   border-collapse: separate;
   border-spacing: 0;
   margin: 14px 0;
@@ -145,6 +155,15 @@
   background: color-mix(in srgb, var(--bgSoft) 85%, transparent);
 }
 
+@media (max-width: 600px) {
+  .tiptap-content table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+  }
+}
+
 /* resizable handle (si Table.resizable=true) */
 .tiptap-content .column-resize-handle {
   background: color-mix(in srgb, var(--accent) 55%, transparent);
@@ -155,6 +174,9 @@
 /* TipTap content styles */
 .tiptap-content {
   line-height: 1.7;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  max-width: 100%;
 }
 
 /* 👇 Esto es lo que corrige tu problema */
@@ -173,6 +195,7 @@
   border: 1px solid var(--border);
   background: var(--card);
   margin: 12px auto;
+  cursor: zoom-in;
 }
 
 /* si insertas youtube */
@@ -180,4 +203,76 @@
   max-width: 100%;
   border-radius: 14px;
   border: 1px solid var(--border);
+}
+
+/* ==========================
+   TipTap Image Lightbox
+   ========================== */
+
+.tiptapImgBtn {
+  cursor: zoom-in;
+}
+
+/* overlay */
+.tiptapLightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(11, 18, 32, 0.72);
+  backdrop-filter: blur(6px);
+  display: grid;
+  place-items: center;
+  padding: 18px;
+}
+
+/* wrapper para evitar que el click en la imagen cierre */
+.tiptapLightbox__inner {
+  max-width: min(980px, 92vw);
+  max-height: min(86vh, 860px);
+  display: grid;
+  place-items: center;
+}
+
+/* imagen grande */
+.tiptapLightbox__img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.18);
+  box-shadow: 0 22px 60px rgba(0,0,0,0.35);
+  cursor: zoom-out;
+}
+
+/* hint */
+.tiptapLightbox__hint {
+  margin-top: 10px;
+  text-align: center;
+  color: rgba(255,255,255,0.85);
+  font-weight: 700;
+  font-size: 12px;
+}
+
+/* opcional: botón cerrar */
+.tiptapLightbox__close {
+  position: fixed;
+  top: 14px;
+  right: 14px;
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.10);
+  color: #fff;
+  font-weight: 900;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+/* bloquea scroll del body cuando el lightbox está abierto */
+body.tiptapLightboxOpen {
+  overflow: hidden;
 }
