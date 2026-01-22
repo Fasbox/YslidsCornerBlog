@@ -1,6 +1,6 @@
 // src/components/home/HomePaths.tsx
 import { Link } from "react-router-dom";
-import "../../../styles/components/home/paths.css";
+import "../../../styles/components/homeBlog/paths.css";
 
 type TagProps = {
   children: React.ReactNode;

@@ -1,6 +1,6 @@
 // src/components/home/HomeBlog.tsx
 import { Link } from "react-router-dom";
-import "../../../styles/components/home/blog.css";
+import "../../../styles/components/homeBlog/blog.css";
 
 type Post = {
   section: "TECH" | "FASEC";
