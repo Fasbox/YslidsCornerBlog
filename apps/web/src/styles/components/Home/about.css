@@ -85,7 +85,7 @@
 
 .aboutPill--top {
   z-index: 1;
-  top: -10%;
+  top: -8%;
   left: 50%;
   transform: translateX(-50%);
 }
