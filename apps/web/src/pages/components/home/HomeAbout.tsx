@@ -27,7 +27,7 @@ export default function HomeAbout() {
           <span className="sectionPill">Sobre mí</span>
 
           <h2 className="aboutTitle">
-            Hola, soy <span className="aboutTitle__accent">Fabian</span>
+            Hola, soy <span className="aboutTitle__accent">Yslid</span>
           </h2>
 
           <p className="aboutText">
