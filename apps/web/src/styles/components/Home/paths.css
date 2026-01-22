@@ -1,0 +1,307 @@
+/* src/styles/components/home/paths.css */
+.paths {
+  margin-top: 22px;
+  padding: 34px 0 56px;
+}
+
+.sectionHead {
+  text-align: center;
+  max-width: 860px;
+  margin: 0 auto 18px;
+}
+
+.sectionPill {
+  display: inline-flex;
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(37, 99, 235, 0.08);
+  color: var(--accent);
+  font-weight: 950;
+  font-size: 12px;
+}
+
+.sectionTitle {
+  margin: 12px 0 0;
+  font-size: 34px;
+  font-weight: 950;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  line-height: 1.06;
+}
+
+@media (min-width: 768px) {
+  .sectionTitle {
+    font-size: 44px;
+  }
+}
+
+.sectionTitle__accent {
+  color: var(--accent);
+}
+
+.sectionSub {
+  margin: 10px auto 0;
+  color: var(--textSoft);
+  line-height: 1.7;
+  max-width: 62ch;
+  font-size: 15px;
+}
+
+.pathsGrid {
+  display: grid;
+  gap: 18px;
+  margin-top: 22px;
+  margin-bottom: 22px;
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+@media (min-width: 900px) {
+  .pathsGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    align-items: stretch;
+  }
+}
+
+.pathCard {
+  display: block;                /* porque ahora es Link */
+  text-decoration: none;
+  color: inherit;
+
+  border: 1px solid var(--border);
+  background: var(--card);
+  border-radius: 22px;
+  padding: 18px;
+  box-shadow: 0 12px 30px var(--shadow);
+  overflow: hidden;
+  position: relative;
+    transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease, border-color 180ms ease;
+}
+
+.pathCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 46px rgba(2, 6, 23, 0.14);
+  border-color: rgba(37, 99, 235, 0.18);
+}
+
+.pathCard:active {
+  transform: translateY(-1px);
+}
+
+/* Focus accesible */
+.pathCard:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 4px;
+}
+
+
+/* 👇 Más espacio interno en desktop */
+@media (min-width: 768px) {
+  .pathCard { padding: 22px; }
+}
+
+.pathCard--tech {
+  background: radial-gradient(circle at 18% 18%, rgba(37, 99, 235, 0.10), transparent 55%),
+    var(--card);
+}
+
+.pathCard--fasec {
+  background: radial-gradient(circle at 18% 18%, rgba(249, 115, 22, 0.14), transparent 55%),
+    rgba(255, 255, 255, 0.92);
+}
+
+.pathCardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+
+/* Link visual dentro del card */
+.pathLink {
+  margin-top: 32px;
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  font-weight: 950;
+  text-decoration: none;
+  transition: transform 160ms ease, opacity 160ms ease;
+}
+
+.pathCard:hover .pathLink {
+  transform: translateX(2px);
+  opacity: 0.95;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 950;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border: 1px solid var(--border);
+  color: var(--textSoft);
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.badge--tech {
+  color: var(--accent);
+  background: rgba(37, 99, 235, 0.08);
+  border-color: rgba(37, 99, 235, 0.18);
+}
+
+.badge--fasec {
+  color: #f97316;
+  background: rgba(249, 115, 22, 0.10);
+  border-color: rgba(249, 115, 22, 0.22);
+}
+
+.miniIcons {
+  display: inline-flex;
+  gap: 8px;
+}
+
+.miniIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.75);
+  color: var(--text);
+  font-weight: 950;
+}
+
+.miniIcon__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--accent);
+  box-shadow: 0 0 0 5px var(--accentSoft);
+}
+
+.miniIcon--fasec {
+  border-color: rgba(249, 115, 22, 0.22);
+}
+
+.miniIcon__dot--fasec {
+  background: #f97316;
+  box-shadow: 0 0 0 5px rgba(249, 115, 22, 0.18);
+}
+
+.pathTitle {
+  margin: 14px 0 0;
+  font-size: 28px;
+  font-weight: 950;
+  color: var(--text);
+  letter-spacing: -0.02em;
+  line-height: 1.12;
+}
+
+@media (min-width: 768px) {
+  .pathTitle {
+    font-size: 30px;
+  }
+}
+
+.pathTitle__accentTech {
+  color: var(--accent);
+}
+
+.pathTitle__accentFasec {
+  color: #f97316;
+}
+
+.pathDesc {
+  margin-top: 10px;
+  color: var(--textSoft);
+  line-height: 1.75;
+  max-width: 62ch;
+}
+
+.pathIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 36px;
+  height: 36px;
+
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.65);
+
+  color: var(--text);
+
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease,
+    background 220ms ease;
+}
+
+.tagRow {
+  margin-top: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.65);
+  font-weight: 900;
+  font-size: 12px;
+  color: var(--textSoft);
+}
+
+.tag--tech {
+  border-color: rgba(37, 99, 235, 0.18);
+}
+
+.tag--fasec {
+  border-color: rgba(249, 115, 22, 0.22);
+  background: rgba(249, 115, 22, 0.08);
+  color: #b45309;
+}
+
+.pathLink--tech {
+  color: var(--accent);
+}
+
+.pathLink--fasec {
+  color: #f97316;
+}
+
+/* 👇 En móvil NO mostramos la tira de iconos */
+.pathsVisual {
+  display: none;
+}
+
+/* 👇 En móvil mostramos máximo 2 tags */
+.tagRow .tag:nth-child(n + 3) {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .pathsVisual {
+    display: inline-flex;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .tagRow .tag:nth-child(n + 3) {
+    display: inline-flex;
+  }
+}

@@ -1,37 +1,38 @@
+// src/pages/HomePage.tsx
+import "../styles/components/home.css";
+
+import HomeBg from "./components/home/HomeBg";
+import HomeHero from "./components/home/HomeHero";
+import HomePaths from "./components/home/HomePaths";
+import HomeSocial from "./components/home/HomeSocial";
+import HomeBlog from "./components/home/HomeBlog";
+import HomeAbout from "./components/home/HomeAbout";
+
 export default function HomePage() {
+  const scrollToId = (id: string) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
   return (
     <main className="home">
-      <div className="home-grid">
-        <section className="home-hero">
-          <p className="home-kicker">YSLID’S CORNER</p>
+      <HomeBg />
 
-          <h1 className="home-title">
-            Una mente curiosa navegando el caos de la tecnología
-          </h1>
+      <HomeHero
+        onExplore={() => scrollToId("explorar")}
+        onAbout={() => scrollToId("sobre-mi")}
+      />
 
-          <p className="home-subtitle">
-            Este es mi camino por la ciberseguridad, la automatización, las redes y
-            todo lo relacionado con la tecnología. A veces, las cosas no funcionan a
-            la primera (o a la décima), pero eso es lo divertido, creo.
-          </p>
-        </section>
+      <div id="explorar" className="home-anchor" />
 
-        <section className="home-gates">
-          <a className="gate gate-tech" href="/tech">
-            <span className="gate-badge">TECH</span>
-            <h2>Tech</h2>
-            <p>Redes, desarrollo, herramientas y productividad.</p>
-            <span className="gate-cta">Entrar →</span>
-          </a>
+      <HomePaths />
 
-          <a className="gate gate-fasec" href="/fasec">
-            <span className="gate-badge">FASEC</span>
-            <h2>FASEC</h2>
-            <p>Ciberseguridad para todos: fácil, divertida y humana.</p>
-            <span className="gate-cta">Entrar →</span>
-          </a>
-        </section>
-      </div>
+      <HomeSocial />
+
+      <HomeBlog />
+
+      <HomeAbout />
     </main>
   );
 }

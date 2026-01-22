@@ -1,0 +1,278 @@
+/* src/styles/components/home/social.css */
+.social {
+  margin: 28px 8px 0;
+  padding: 24px 0 16px;
+
+  background: rgba(37, 99, 235, 0.06);
+  border-radius: 22px;
+  border: 1px solid rgba(37, 99, 235, 0.10);
+}
+
+@media (min-width: 768px) {
+  .social {
+    margin: 34px 8px 0;
+    border-radius: 26px;
+    padding: 30px 0 18px;
+  }
+}
+
+/* ✅ Head: en desktop dejamos “texto a la izquierda” y acciones a la derecha */
+.socialHead {
+  padding: 0 18px;
+  max-width: 1050px;
+  margin: 0 auto;
+
+  display: grid;
+  gap: 14px;
+  align-items: start;
+
+  /* mobile: todo apilado */
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 900px) {
+  .socialHead {
+    grid-template-columns: 1fr auto;
+    column-gap: 26px;
+    row-gap: 16px;
+    align-items: center;
+  }
+
+  /* pill arriba, ocupa las dos columnas */
+  .socialHead > .sectionPill {
+    grid-column: 1 / -1;
+  }
+
+  /* texto izquierda */
+  .socialText {
+    grid-column: 1;
+  }
+
+  /* botones derecha */
+  .socialActions {
+    grid-column: 2;
+    justify-content: flex-end;
+    align-self: center;
+  }
+}
+
+.sectionPill--fasec {
+  color: #f97316;
+  background: rgba(249, 115, 22, 0.10);
+  border-color: rgba(249, 115, 22, 0.18);
+  width: fit-content;
+}
+
+.socialText {
+  display: grid;
+  gap: 10px;
+}
+
+.socialTitle {
+  margin: 0;
+  font-size: 34px;
+  font-weight: 950;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  line-height: 1.06;
+}
+
+@media (min-width: 768px) {
+  .socialTitle {
+    font-size: 40px;
+  }
+}
+
+.socialTitle__accent {
+  color: #f97316;
+}
+
+.socialSub {
+  margin: 0;
+  color: var(--textSoft);
+  line-height: 1.75;
+  max-width: 62ch;
+}
+
+/* ✅ Botones: siempre juntos, sin “bailar” */
+.socialActions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: nowrap;
+}
+
+@media (max-width: 899px) {
+  /* mobile/tablet: que puedan partir si hace falta */
+  .socialActions {
+    flex-wrap: wrap;
+  }
+}
+
+.socialBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 16px;
+  border-radius: 999px;
+  font-weight: 950;
+  text-decoration: none;
+  border: 1px solid var(--border);
+  transition: transform 160ms ease, filter 160ms ease, background 160ms ease, box-shadow 160ms ease;
+  box-shadow: 0 10px 26px rgba(2, 6, 23, 0.08);
+
+  white-space: nowrap;
+  min-width: 126px; /* ✅ evita que uno quede más “chiquito” */
+}
+
+.socialBtn:hover {
+  transform: translateY(-2px);
+}
+
+.socialBtn--ig {
+  color: #fff;
+  border-color: rgba(168, 85, 247, 0.18);
+  background: linear-gradient(90deg, rgba(168, 85, 247, 0.92), rgba(249, 115, 22, 0.92));
+}
+
+.socialBtn--tt {
+  color: #fff;
+  background: rgba(11, 18, 32, 0.96);
+  border-color: rgba(11, 18, 32, 0.22);
+}
+
+/* Cards */
+.socialGrid {
+  margin: 18px auto 0;
+  padding: 0 18px 18px;
+  max-width: 1050px;
+
+  display: grid;
+  gap: 14px;
+}
+
+@media (min-width: 900px) {
+  .socialGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    padding-bottom: 22px;
+  }
+}
+
+.post {
+  border: 1px solid rgba(15, 23, 42, 0.10);
+  border-radius: 18px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 12px 30px rgba(2, 6, 23, 0.10);
+  transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+}
+
+.post:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 44px rgba(2, 6, 23, 0.14);
+  border-color: rgba(37, 99, 235, 0.20);
+}
+
+.postTop {
+  position: relative;
+  padding: 14px 14px 12px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.70);
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+@media (min-width: 900px) {
+  .postTop {
+    padding: 16px 16px 12px;
+  }
+}
+
+.postTop::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 8px;
+  background: linear-gradient(180deg, var(--g1), var(--g2));
+  opacity: 0.95;
+}
+
+.postTop--ig1 {
+  --g1: rgba(168, 85, 247, 0.95);
+  --g2: rgba(249, 115, 22, 0.95);
+}
+
+.postTop--tt1 {
+  --g1: rgba(14, 165, 233, 0.95);
+  --g2: rgba(37, 99, 235, 0.95);
+}
+
+.postTop--ig2 {
+  --g1: rgba(249, 115, 22, 0.95);
+  --g2: rgba(239, 68, 68, 0.95);
+}
+
+.postPill {
+  display: inline-flex;
+  padding: 7px 10px;
+  border-radius: 999px;
+  font-weight: 950;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+
+  border: 1px solid rgba(15, 23, 42, 0.10);
+  background: rgba(15, 23, 42, 0.04);
+  color: var(--textSoft);
+}
+
+.postHandle {
+  font-weight: 950;
+  color: var(--textSoft);
+}
+
+.postBody {
+  padding: 14px;
+  display: grid;
+  gap: 10px;
+}
+
+@media (min-width: 900px) {
+  .postBody {
+    padding: 16px;
+    gap: 12px;
+  }
+}
+
+.postTitle {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 950;
+  color: var(--text);
+  line-height: 1.25;
+}
+
+.postDesc {
+  margin: 0;
+  color: var(--textSoft);
+  line-height: 1.65;
+}
+
+.postMeta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--textSoft);
+  font-weight: 900;
+  font-size: 12px;
+}
+
+.postHeart {
+  color: #ef4444;
+}
