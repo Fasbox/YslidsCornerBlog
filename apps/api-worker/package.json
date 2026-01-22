@@ -3,8 +3,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "wrangler dev",
-    "deploy": "wrangler deploy"
+    "dev": "wrangler dev --local --env dev",
+    "deploy": "wrangler deploy --env prod"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.89.0",
