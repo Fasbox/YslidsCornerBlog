@@ -42,7 +42,7 @@ export default function SectionIndexPage({ section }: Props) {
         <h1 className="section__title">{label(section)}</h1>
 
         <p className="section__subtitle">
-          Artículos publicados, listados desde la API.
+          Explora artículos y recursos sobre {label(section).toLowerCase()}.
         </p>
       </header>
 

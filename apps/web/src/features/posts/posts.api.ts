@@ -1,19 +1,7 @@
 import { apiFetch } from "../../lib/apiClient";
+import type { PostBase } from "./posts.types";
 
-export type PostTag = { id: string; name: string; slug: string; section: "TECH" | "FASEC" | null };
-
-export type PostListItem = {
-  id: string;
-  section: "TECH" | "FASEC";
-  status: "DRAFT" | "PUBLISHED";
-  title: string;
-  slug: string;
-  excerpt: string | null;
-  reading_time: number;
-  published_at: string | null;
-  cover_image_url: string | null;
-  tags: PostTag[];
-};
+export type PostListItem = PostBase;
 
 export type PostsListResponse = {
   page: number;
@@ -39,4 +27,8 @@ export function fetchPosts(params: {
   if (params.tag) qs.set("tag", params.tag);
 
   return apiFetch<PostsListResponse>(`/posts?${qs.toString()}`);
+}
+
+export function fetchLatestPosts(limit = 4) {
+  return fetchPosts({ page: 1, limit });
 }

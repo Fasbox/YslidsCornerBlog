@@ -47,16 +47,16 @@ export default function HomeAbout() {
           </div>
 
           <div className="aboutLinks">
-            <a className="aboutLink" href="#" target="_blank" rel="noreferrer">
+            <a className="aboutLink" href="https://github.com/Fasbox/YslidsCornerBlog" target="_blank" rel="noreferrer">
               GitHub
             </a>
-            <a className="aboutLink" href="#" target="_blank" rel="noreferrer">
-              Twitter
+            <a className="aboutLink" href="https://www.instagram.com/itsfasec/" target="_blank" rel="noreferrer">
+              Instagram
             </a>
-            <a className="aboutLink" href="#" target="_blank" rel="noreferrer">
+            <a className="aboutLink" href="https://www.linkedin.com/in/fabian-chavarria/" target="_blank" rel="noreferrer">
               LinkedIn
             </a>
-            <a className="aboutLink" href="#" target="_blank" rel="noreferrer">
+            <a className="aboutLink" href="YslidsMail@proton.me" target="_blank" rel="noreferrer">
               Email
             </a>
           </div>

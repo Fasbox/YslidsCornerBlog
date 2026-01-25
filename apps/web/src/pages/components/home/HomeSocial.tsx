@@ -13,7 +13,7 @@ type SocialPost = {
 const POSTS: SocialPost[] = [
   {
     platform: "Instagram",
-    handle: "@fasec",
+    handle: "@itsfasec",
     title: "¿Qué es el Phishing?",
     desc: "Aprende a identificar correos fraudulentos",
     likes: "Deja tu like",
@@ -21,7 +21,7 @@ const POSTS: SocialPost[] = [
   },
   {
     platform: "TikTok",
-    handle: "@fasec",
+    handle: "@itsfasec",
     title: "5 Tips de Contraseñas",
     desc: "Protege tus cuentas en 60 segundos",
     likes: "Comenta",
@@ -29,7 +29,7 @@ const POSTS: SocialPost[] = [
   },
   {
     platform: "Instagram",
-    handle: "@fasec",
+    handle: "@itsfasec",
     title: "VPN: ¿Sí o No?",
     desc: "Cuándo realmente la necesitas",
     likes: "Comparte",
@@ -54,10 +54,10 @@ export default function HomeSocial() {
         </div>
 
         <div className="socialActions">
-          <a className="socialBtn socialBtn--ig" href="#" target="_blank" rel="noreferrer">
+          <a className="socialBtn socialBtn--ig" href="https://www.instagram.com/itsfasec/" target="_blank" rel="noreferrer">
             Instagram
           </a>
-          <a className="socialBtn socialBtn--tt" href="#" target="_blank" rel="noreferrer">
+          <a className="socialBtn socialBtn--tt" href="https://www.tiktok.com/@itsfasec" target="_blank" rel="noreferrer">
             TikTok
           </a>
         </div>

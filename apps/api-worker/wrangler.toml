@@ -5,6 +5,7 @@ compatibility_date = "2025-01-01"
 # ✅ Producción (default)
 [vars]
 CORS_ORIGIN = "https://yslidscorner.com,https://www.yslidscorner.com"
+API_BASE_URL = "https://api.yslidscorner.com"
 
 # ✅ Desarrollo (local)
 [env.dev]
@@ -12,6 +13,7 @@ name = "yslidscorner-api-dev"
 
 [env.dev.vars]
 CORS_ORIGIN = "http://localhost:5173,http://127.0.0.1:5173"
+API_BASE_URL = "https://api.yslidscorner.com"
 
 [env.prod]
 name = "yslidscorner-api"

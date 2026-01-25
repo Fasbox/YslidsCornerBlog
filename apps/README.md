@@ -231,15 +231,139 @@ En Cloudflare Pages (Environment Variables):
 cd apps/web
 npm install
 npm run dev
-
+```
 ## API (Cloudflare Worker + Hono)
 
 ### Requisitos
 - Node.js + pnpm
 - Wrangler (viene como dependencia del proyecto)
 
-### Levantar en local
-```bash
+## Convenciones y decisiones importantes (léelo antes de tocar código)
+### Separación de responsabilidades
+
+Este proyecto sigue una regla clave:
+
+- La web NO contiene lógica de negocio
+
+- La API NO contiene lógica de presentación
+
+Eso se refleja en:
+
+- Web → hooks + componentes
+
+- API → routes → services → repositories
+
+Si algo parece “duplicado”, probablemente pertenece a otra capa.
+
+## Arquitectura de la API (Hono)
+
+La API sigue este flujo:
+
+HTTP Request
+   ↓
+Route (valida URL y método)
+   ↓
+Middleware (auth, CORS, headers)
+   ↓
+Service (reglas del negocio)
+   ↓
+Repository (Supabase)
+   ↓
+Response JSON
+
+## Rutas
+
+Públicas: lectura de posts, tags, series
+
+Admin: CRUD (requieren autenticación)
+
+Ejemplo:
+GET /posts/:slug
+→ posts.routes.ts
+→ posts.service.ts
+→ posts.repo.ts
+
+## 🔐 Autenticación (Admin)
+
+- La autenticación no vive en la web
+- La web solo envía credenciales / token
+- La API valida con:
+
+    - requireAdmin.ts
+    - SUPABASE_SERVICE_ROLE_KEY
+
+Esto evita:
+
+- Exponer secretos en frontend
+- Bypass de permisos desde el navegador
+
+## ✍️ Editor de contenido (TipTap)
+
+- El contenido de los posts se guarda como JSON
+
+- Se renderiza en:
+
+    - Web pública (PostContent)
+    - Dashboard Admin (Editor)
+
+Ventajas:
+
+- No dependes de HTML inseguro
+- Puedes transformar / migrar contenido en el futuro
+- Mejor control de imágenes, tablas, embeds
+
+## 🖼️ Imágenes en posts
+
+Comportamiento actual:
+
+- En mobile:
+    - Tap → zoom (lightbox)
+    - Tap fuera → cerrar
+
+- En desktop:
+    - Responsive, sin scroll horizontal
+
+- Esto se controla con:
+    - TiptapImageLightbox.tsx
+    - useTiptapImageZoom.ts
+    - tiptap.css
+
+## 🌍 SEO (estado actual)
+### Implementado
+- URLs limpias por slug
+- Separación por sección (Tech / FASEC)
+
+### Pendiente (planificado)
+- Meta tags dinámicos por post
+- Open Graph (OG)
+- Sitemap.xml
+- Canonical URLs
+- Structured Data (JSON-LD)
+
+## 🧪 Testing (pendiente)
+Aún NO hay tests, pero la estructura ya lo permite.
+## API (recomendado)
+- Tests de services (unit)
+- Tests de routes (integration)
+- Usar:
+    - Vitest
+    - Miniflare (Cloudflare Workers)
+## Web (recomendado)
+- Tests de hooks
+- Tests de páginas clave
+- Usar:
+    - Vitest
+    - Testing Library
+
+## 🚀 Deploy
+### API (Cloudflare Worker)
 cd apps/api-worker
-pnpm install
-pnpm dev
+pnpm deploy
+
+Usa wrangler.toml como fuente de verdad.
+Secrets se mantienen en Cloudflare Dashboard.
+
+### Web
+Con el commit al github se sincorniza automáticamente
+
+
