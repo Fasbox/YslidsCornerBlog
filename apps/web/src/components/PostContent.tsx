@@ -8,6 +8,7 @@ import Youtube from "@tiptap/extension-youtube";
 
 import TiptapImageLightbox from "./TiptapImageLightbox";
 import { useTiptapImageZoom } from "../hooks/useTiptapImageZoom";
+import ImageResize from "tiptap-extension-resize-image";
 
 type Props = {
   content: JSONContent | null | undefined;
@@ -24,6 +25,7 @@ export default function PostContent({ content }: Props) {
         linkOnPaste: true,
       }),
       Image,
+      ImageResize,
       Youtube.configure({
         controls: true,
         nocookie: true,
