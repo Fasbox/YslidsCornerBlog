@@ -10,7 +10,7 @@ function SectionPill({ type }: { type: "TECH" | "FASEC" }) {
 
 function toPostUrl(p: Pick<PostListItem, "section" | "slug">) {
   // ✅ Asumo que tus rutas públicas son /tech/:slug y /fasec/:slug
-  return p.section === "FASEC" ? `/fasec/${p.slug}` : `/tech/${p.slug}`;
+  return p.section === "FASEC" ? `/fasec/post/${p.slug}` : `/tech/post/${p.slug}`;
 }
 
 function formatDate(iso: string | null) {
@@ -120,7 +120,7 @@ export default function HomeBlog() {
             <p className="featuredExcerpt">{featured.excerpt ?? "—"}</p>
 
             <Link className="featuredLink" to={toPostUrl(featured)}>
-              Leer artículo <span aria-hidden="true">→</span>
+              Leer artículo <span aria-hidden="true">→</span> 
             </Link>
           </article>
 

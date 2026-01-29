@@ -120,6 +120,7 @@
 
 .aboutText {
   margin-top: 10px;
+  margin-right: 10px;
   color: var(--textSoft);
   line-height: 1.75;
   max-width: 62ch;
